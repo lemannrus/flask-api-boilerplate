@@ -46,8 +46,6 @@ class BlogPostDetail(Resource):
     @login_required
     def delete(self, slug):
         post = Post.query.filter_by(slug=slug).first()
-        if not post:
-            abort(404, message="Post {} doesn't exist".format(slug))
         db.session.delete(post)
         db.session.commit()
         return {}, 204
