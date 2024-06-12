@@ -6,7 +6,7 @@ from itsdangerous import (TimedJSONWebSignatureSerializer
                           as Serializer, BadSignature, SignatureExpired)
 
 assoc = db.Table(
-    'auth_perm_assoc',
+    'auth_perm_association',
     db.Model.metadata,
     db.Column('auth_user_id', db.Integer, db.ForeignKey('auth_user.id')),
     db.Column('auth_perm_id', db.Integer, db.ForeignKey('auth_perm.id')),
